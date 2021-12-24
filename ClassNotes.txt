@@ -1,0 +1,351 @@
+
+Typescript
+Angular
+Rxjs
+
+ts data types
+
+1.primitive -string,number,boolean
+2.object
+3.array
+
+
+let firstName ="subramaian"
+firstName=100;
+
+
+String firstName="S.."
+firstName=900;
+
+export , import,export default.
+......................
+
+WebApps:
+ - Server side -  servlets/jsp,asp,php,python...
+    -dynamic web pages - html
+    -Webservices - data driven  -  SOAP,REST,GRAPHQL,RPC.....
+-Client side
+     
+    SPA-browers    javascript ,html,css
+     build end to end web apps in js, and rendered in browsers
+    Angular is spa framework to build end to end browser based app
+    mobile apps
+ ...........................................................................................
+
+Create hTML PAGES,
+modify html pages
+dom programing.
+
+In js every HTML element is object.
+h1 -object
+div -object
+
+DOM - Document object model - object oriented html.
+
+In Angular the same(dom) object  is called "component".
+
+html forms hierachal structure
+
+ div
+   div
+     div
+       h1
+
+
+Angular core concepts:
+
+1.component
+2.services
+3.directives
+4.pipes
+
+Decorator meta:
+
+Every object has been decorated with Decorators
+Decorator meta data itself is object.
+
+@Component(decoratormetadata)
+@Injectable
+@Directive
+@Pipe
+
+
+Template:
+ collection of angular instructions(symbols) and html elements
+
+Symobols: used for data binding
+ {{}} - interpolation
+ [] - property /attribute/style/class binding
+ * - directive -  *ngIf,*ngFor
+ | -pipe
+ () - event
+
+View:
+ Runtime representation of template -  output- html
+
+HTML elements:
+
+ div,h1,span -  built in html elements
+ <app-root>,app-product,<app-invoice>  custom elements -
+
+ <app-root>
+   <app-layout>
+       <app-header>
+       </app-main/>
+       <app-footer>
+   </app-layout>
+ </app-root>
+
+SPA : Menus
+ Routing
+
+Angular namespace/package:
+
+@angular/core
+@angular/common
+@angular/common/http
+@angular/animations
+ 
+
+@angular - folder name
+/core -subfolder
+
+Every ng app must be organized with help of ngModule
+
+Every ng app must have one single module called "root" module - app module
+
+Every ng app must have one single entry point called "appComponent"  -
+
+Types of modules
+
+1.phsyical  - files  - export,import 
+2.logical   - object orgainzation
+
+What is basic step for any object(component,service,directive,submodules...)
+
+
+1.declare class.
+
+2.decorate the class according to what object you want create
+  -component  -@Component
+
+@Component({
+
+})
+class AppComponent {
+
+}
+
+..............................................................................................
+
+component creations:
+
+code style:
+
+component files
+
+- component ts
+- component template file
+- component css file
+- component spec
+
+hero.component.ts|html|css|spec 
+
+class Name
+ Noun
+ ClassName+Component |Directive|Service|Pipe
+
+ HeroComponent
+ HeroListComponent
+ HeroDetailsComponent
+
+Modularity:
+ src
+   app
+    features
+
+ src   
+   app
+    hero
+      hero.component.ts
+      hero.component.html
+      hero.service.ts
+      hero.directive.ts
+      hero.module.ts
+  utilties
+  services
+  pipes
+  directives
+
+
+SubModules
+
+
+scope:
+
+any component is declared within module , is available only within that module only.
+The scope of component is private to that module only.
+
+if you want to share/make it public, you configure that.
+
+
+automation:
+
+create folder,create module,create component,do di.....
+
+ng g m footer --module=app
+
+ng g c footer/footer  --flat=true --export=true --inline-style=true --skip-tests=true   --module=footer
+
+
+MVC:
+
+Model - data 
+View 
+Controller -component
+
+data : can be primitives,objects,array.
+
+how to show data in view? 
+  data binding.
+
+1.interpolation
+2.property binding
+3.attribute binding
+4.event binding
+5.two way data binding
+6.class binding
+7.style binding
+
+
+Service:
+ object, holding data and biz logic.
+
+Component life cycle hooks:
+methods are getting called automatically.
+
+init  - when component/view is shown inital
+  -used to call service method, gets inital data for ui.
+
+destroy / when component/view is destroyed/moved
+
+...
+css:
+ bootstrap
+<div class="card">
+  <div class="card-body">
+    This is some text within a card body.
+  </div>
+</div>
+
+Java script and async programming/nonblocking:
+
+javascript can load data from  web services async. 
+UI will not be blocked until
+
+implementations:
+
+1.callback 
+2.promises
+3.promise , async and await.
+4.rxjs -Async + Streaming
+
+RXJS IN Angular
+
+1.inside service -  async data  + streaming
+2.router
+3.event emitters
+
+Observable
+Subjects
+
+.....
+
+Structural directives:
+
+1.*ngFor : for loop
+2.*ngIf  : if condition
+3.*ngSwitch : switch
+
+if..else,ngtemplate,#(template reference variable) : spinner
+
+.............................................................................................
+HTTP end points:
+...............
+
+built in object/service to talk to end points
+
+@angular/common/http
+................
+
+pipes: Data formating.
+
+{{data|nameofpipe}}
+
+{{todo.title | uppercase}}
+.............................................................................................
+
+Databinding: 
+
+{{}}
+[]
+()
+[()]
+
+....
+
+[]
+
+Attribute binding : [] ->dynamic values 
+
+<img src="logo.png"/> - static
+
+<img [src]="logo"/> - static
+
+Property Binding : []  -dynamic values passed to the component
+
+ <hero [name]="test" [age]="age" >
+
+@Input() -  is used to read property values
+
+
+Event binding 
+(nameofTheEvnet)
+
+Two way databinding: - input from the user.
+
+[(ngModel)]
+..............................................................................................
+Routing:
+.......
+
+SPA Webpages
+
+- menus
+
+
+RouterModule:
+
+ - RouteConfiguration
+      - How to navigate from one page to another page by menus and also code.
+
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+
+
+Routes - To define type of Route
+const appRoutes: Routes = [
+    {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canLoad: [AuthGuard]
+  },
+]
+...
+
+RouterModule.forRoot(routeConfig) - master route
+RouterModule.forChild(routeConfig) - moudule route-child
+
+router-outlet - place holder component to show compoent details
+ActivatedRoute : It is object  used to read url informations such as id,queryparameter,request parameter.
+superhero/:id  /superhero/10
+Router - navigation is based on hyerlinks, but through code also we can navigate via Router object

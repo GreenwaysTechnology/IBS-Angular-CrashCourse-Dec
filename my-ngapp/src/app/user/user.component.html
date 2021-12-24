@@ -1,0 +1,12 @@
+<div>
+    <h2>User info</h2>
+    <h3>User Name {{userName}}</h3>
+    <h3>Age {{age}}</h3>
+    <h3>Status {{status}}</h3>
+    <h3>City {{address.city}}</h3>
+    <h3>Skills</h3>
+    <!-- Directives -->
+    <ul>
+       <li *ngFor="let skill of skills">{{skill}}</li>
+    </ul>
+</div>

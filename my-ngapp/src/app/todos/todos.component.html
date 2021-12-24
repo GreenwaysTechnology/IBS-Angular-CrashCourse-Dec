@@ -1,0 +1,12 @@
+<div class="card">
+    <div *ngIf="loading; else notLoading  ">
+        <h1 style="text-align: center; color: blue;">{{status}}</h1>
+    </div>
+    <ng-template #notLoading>
+        <div class="card-body" *ngFor="let todo of todos |async" style="background-color: aqua;">
+            <h2>{{todo?.id}}</h2>
+            <h3>{{todo?.title | titlecase}}</h3>
+            <h3>{{todo?.completed ? "completed" :"Not Completed"}}</h3>
+        </div>
+    </ng-template>
+</div>

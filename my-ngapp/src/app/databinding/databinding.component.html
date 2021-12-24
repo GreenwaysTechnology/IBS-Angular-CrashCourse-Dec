@@ -1,0 +1,17 @@
+<h1>Data binding</h1>
+<h2>Interpolation - {{title}}</h2>
+<h2>Attribute Binding</h2>
+<img src="favicon.ico" />
+<!-- Dynamic values -->
+<img [src]="logo" />
+<div [hidden]="show">Hi, this is secrete Place</div>
+<!--Property Binding -->
+<app-hero [name]="heroName" [movies]="movies"></app-hero>
+
+<h1>Event Binding</h1>
+<h2>Counter {{counter}}</h2>
+<button (click)="onIncrement()" >+</button>
+<div>
+    <h3>Your Text: {{text}}</h3>
+    <input [(ngModel)]="text">
+</div>
